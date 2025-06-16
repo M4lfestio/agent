@@ -25,5 +25,7 @@ response = client.models.generate_content(
 
 #Responses
 print(response.text)
-print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
-print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+if "--verbose" in sys.argv:
+    print(f"User prompt: {user_prompt}")
+    print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+    print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
